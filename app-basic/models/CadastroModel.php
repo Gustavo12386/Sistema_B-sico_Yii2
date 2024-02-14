@@ -2,13 +2,17 @@
 
 namespace app\models;
 
-use yii\base\Model;
+//use yii\base\Model;
+use yii\db\ActiveRecord;
 
-Class CadastroModel extends Model
-{
-   public $nome;
-   public $email;
-   public $idade;
+Class CadastroModel extends ActiveRecord
+{  
+  public $idade;
+
+  public static function tableName()
+    {
+        return 'pessoas'; 
+    }
 
    public function rules()
    {

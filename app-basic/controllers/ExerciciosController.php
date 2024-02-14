@@ -15,20 +15,18 @@ class ExerciciosController extends Controller
         $cadastroModel = new CadastroModel();
         $post = Yii::$app->request->post();
 
-        if($cadastroModel->load($post) && $cadastroModel->validate())
-        {
+        if ($cadastroModel->load($post) && $cadastroModel->validate()) {
+            // Salvar os dados no banco de dados
+            $cadastroModel->save();
+
             return $this->render('formulario-confirmacao', [
                 'model' => $cadastroModel
             ]);
-        }
-        else
-        {
+        } else {
             return $this->render('formulario', [
                 'model' => $cadastroModel
             ]);
         }
-
-       
     }
 
     public function actionPessoas()
